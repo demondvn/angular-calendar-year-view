@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from "@angular/core";
 import * as cloneDeep from "lodash/cloneDeep";
-// import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 const clone: cloneDeep = (<any>cloneDeep).default || cloneDeep
 @Component({
   selector: 'angular-calendar-year-view',
@@ -21,6 +21,8 @@ export class AngularCalendarYearViewComponent implements OnInit {
 
   @Input()
   viewDate: Date = new Date();
+  @Input()
+  nothingToshowText: string ="There are no events scheduled that day.";
 
   @Output()
   eventClicked = new EventEmitter<any>();
@@ -35,7 +37,7 @@ export class AngularCalendarYearViewComponent implements OnInit {
   year: any = new Date().getFullYear();
   calendar: any = [];
   spinner: any = true;
-  constructor(              //public sanitizer:DomSanitizer,
+  constructor(              private sanitizer:DomSanitizer,
 
   ) { }
   ngOnInit() {

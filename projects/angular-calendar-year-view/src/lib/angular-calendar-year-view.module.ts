@@ -1,8 +1,9 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, LOCALE_ID } from '@angular/core';
 import { AngularCalendarYearViewComponent } from './angular-calendar-year-view.component';
 import { PopoverModule } from 'ngx-bootstrap/popover'
-import { CommonModule } from '@angular/common';
-
+import { CommonModule, registerLocaleData } from '@angular/common';
+import localeko from '@angular/common/locales/ko';
+registerLocaleData(localeko);
 
 @NgModule({
   declarations: [
@@ -14,6 +15,9 @@ import { CommonModule } from '@angular/common';
   ],
   exports: [
     AngularCalendarYearViewComponent
+  ],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'en-US'},
   ]
 })
 export class AngularCalendarYearViewModule { 
