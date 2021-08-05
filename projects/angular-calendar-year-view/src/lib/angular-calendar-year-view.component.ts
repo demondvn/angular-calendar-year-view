@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter, HostBinding } from "@angular/core";
 import * as cloneDeep from "lodash/cloneDeep";
-import { DomSanitizer } from '@angular/platform-browser';
+// import { DomSanitizer } from '@angular/platform-browser';
 const clone: cloneDeep = (<any>cloneDeep).default || cloneDeep
 @Component({
   selector: 'angular-calendar-year-view',
@@ -35,7 +35,7 @@ export class AngularCalendarYearViewComponent implements OnInit {
   year: any = new Date().getFullYear();
   calendar: any = [];
   spinner: any = true;
-  constructor(              public sanitizer:DomSanitizer,
+  constructor(              //public sanitizer:DomSanitizer,
 
   ) { }
   ngOnInit() {
